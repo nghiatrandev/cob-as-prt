@@ -25,8 +25,10 @@ import (
 	"os"
 )
 
-var cfgFile string
-var asCfg = &as.AerospikeConfig{}
+var (
+	cfgFile string
+	cfg     *as.Config
+)
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
@@ -89,7 +91,8 @@ func initConfig() {
 	}
 
 	// unmarshal to cfg object
-	if err := viper.Unmarshal(asCfg); err != nil {
+	cfg = new(as.Config)
+	if err := viper.Unmarshal(cfg); err != nil {
 		log.Fatal(fmt.Errorf("Error unmarshal the configuration file: %s \n", err))
 	}
 }

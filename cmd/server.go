@@ -12,11 +12,11 @@ var cmdServer = &cobra.Command{
 	Short: "Launch the HTTP server",
 	Run: func(cmd *cobra.Command, args []string) {
 
-		client, err := as.NewClient(asCfg)
+		client, err := as.NewClient(cfg.AsConf)
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		asdb.NewDataServiceAerospike(client, asCfg.Namespace)
+		asdb.NewDataServiceAerospike(client, cfg.AsConf.Namespace)
 	},
 }
