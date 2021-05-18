@@ -18,7 +18,7 @@ package cmd
 import (
 	"fmt"
 	homedir "github.com/mitchellh/go-homedir"
-	"github.com/nghiatrandev/cob-as-prt/as"
+	. "github.com/nghiatrandev/cob-as-prt/common"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"log"
@@ -27,7 +27,7 @@ import (
 
 var (
 	cfgFile string
-	cfg     *as.Config
+	cfg     *Config
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -91,7 +91,7 @@ func initConfig() {
 	}
 
 	// unmarshal to cfg object
-	cfg = new(as.Config)
+	cfg = new(Config)
 	if err := viper.Unmarshal(cfg); err != nil {
 		log.Fatal(fmt.Errorf("Error unmarshal the configuration file: %s \n", err))
 	}

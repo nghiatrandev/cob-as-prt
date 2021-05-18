@@ -1,11 +1,10 @@
-package as
+package common
 
-import (
-	"time"
-)
+import "time"
 
 type Config struct {
-	AsConf *AerospikeConfig `mapstructure:"aerospike"`
+	AsConf     *AerospikeConfig `mapstructure:"aerospike"`
+	HttpConfig *HttpConfig      `mapstructure:"http"`
 }
 
 type AerospikeConfig struct {
@@ -17,4 +16,8 @@ type AerospikeConfig struct {
 	ConnectionQueueSize   int           `mapstructure:"connectionQueueSize"`
 	UdfPath               string        `mapstructure:"udfPath"`
 	Namespace             string        `mapstructure:"namespace"`
+}
+
+type HttpConfig struct {
+	Port uint32 `mapstructure:"port"`
 }

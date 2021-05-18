@@ -1,6 +1,9 @@
 package as
 
-import as "github.com/aerospike/aerospike-client-go"
+import (
+	as "github.com/aerospike/aerospike-client-go"
+	. "github.com/nghiatrandev/cob-as-prt/common"
+)
 
 // NewClient generates a new Client instance.
 func NewClient(cfg *AerospikeConfig) (*as.Client, error) {
