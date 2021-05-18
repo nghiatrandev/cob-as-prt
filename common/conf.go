@@ -19,5 +19,5 @@ type AerospikeConfig struct {
 }
 
 type HttpConfig struct {
-	Port uint32 `mapstructure:"port"`
+	Port int `mapstructure:"port"`
 }

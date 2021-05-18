@@ -1,11 +1,10 @@
 package cmd
 
 import (
-	as "github.com/nghiatrandev/cob-as-prt/as"
-	asdb "github.com/nghiatrandev/cob-as-prt/dataservice"
 	"github.com/nghiatrandev/cob-as-prt/factory"
 	"github.com/spf13/cobra"
-	"log"
+	"net/http"
+	"strconv"
 )
 
 var cmdServer = &cobra.Command{
@@ -15,13 +14,15 @@ var cmdServer = &cobra.Command{
 
 		f := factory.NewDefaultFactory(cfg)
 		hander := f.BuildHandler()
-		hander.Routes()
+		mux := hander.Routes()
 
-		asClient, err := as.NewClient(cfg.AsConf)
-		if err != nil {
-			log.Fatal(err)
-		}
+		//asClient, err := as.NewClient(cfg.AsConf)
+		//if err != nil {
+		//	log.Fatal(err)
+		//}
+		//
+		//asdb.NewDataServiceAerospike(asClient, cfg.AsConf.Namespace)
 
-		asdb.NewDataServiceAerospike(asClient, cfg.AsConf.Namespace)
+		http.ListenAndServe(":"+strconv.Itoa(cfg.HttpConfig.Port), mux)
 	},
 }

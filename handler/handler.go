@@ -1,16 +1,15 @@
 package handler
 
 import (
-	"github.com/prometheus/common/log"
 	"net/http"
 )
 
 type handler struct {
-	Log log.Logger
+	//Log log.Logger
 }
 
 func NewHandler() Handler {
-	return handler{Log: nil}
+	return handler{}
 }
 
 func (h handler) Routes() *http.ServeMux {
@@ -21,6 +20,5 @@ func (h handler) Routes() *http.ServeMux {
 }
 
 func (h handler) GetHello(w http.ResponseWriter, req *http.Request) {
-	h.Log.Info("get hello success")
 	w.Write([]byte("hello"))
 }
