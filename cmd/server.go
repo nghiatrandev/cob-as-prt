@@ -3,6 +3,7 @@ package cmd
 import (
 	"github.com/nghiatrandev/cob-as-prt/factory"
 	"github.com/spf13/cobra"
+	"log"
 	"net/http"
 	"strconv"
 )
@@ -23,6 +24,8 @@ var cmdServer = &cobra.Command{
 		//
 		//asdb.NewDataServiceAerospike(asClient, cfg.AsConf.Namespace)
 
+		log.Println("Start server")
 		http.ListenAndServe(":"+strconv.Itoa(cfg.HttpConfig.Port), mux)
+
 	},
 }
