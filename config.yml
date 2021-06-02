@@ -7,3 +7,8 @@ aerospike:
   connectTimeout: 50s
   udfPath: "udf/"
   namespaces: test
+
+kafka:
+  addr: "localhost:9092"
+  topics:
+    testTopic: "test-topic"

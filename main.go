@@ -1,6 +1,6 @@
 package main
 
-import "github.com/nghiatrandev/cob-as-prt/cmd"
+import "github.com/nghiatrandev/sample_project/cmd"
 
 //func main() {
 //	var echoTimes int

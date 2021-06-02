@@ -1,7 +1,7 @@
 package cmd
 
 import (
-	"github.com/nghiatrandev/cob-as-prt/factory"
+	"github.com/nghiatrandev/sample_project/factory"
 	"github.com/spf13/cobra"
 	"log"
 	"net/http"
@@ -14,8 +14,8 @@ var cmdServer = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 
 		f := factory.NewDefaultFactory(cfg)
-		hander := f.BuildHandler()
-		mux := hander.Routes()
+		handler := f.BuildHandler()
+		mux := handler.Routes()
 
 		//asClient, err := as.NewClient(cfg.AsConf)
 		//if err != nil {

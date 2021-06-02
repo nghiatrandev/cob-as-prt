@@ -3,8 +3,9 @@ package common
 import "time"
 
 type Config struct {
-	AsConf     *AerospikeConfig `mapstructure:"aerospike"`
 	HttpConfig *HttpConfig      `mapstructure:"http"`
+	KafkaConf  *KafkaConfig     `mapstructure:"kafka"`
+	AsConf     *AerospikeConfig `mapstructure:"aerospike"`
 }
 
 type AerospikeConfig struct {
@@ -20,4 +21,13 @@ type AerospikeConfig struct {
 
 type HttpConfig struct {
 	Port int `mapstructure:"port"`
+}
+
+type KafkaConfig struct {
+	Addr   string `mapstructure:"addr"`
+	Topics Topics `mapstructure:"topics"`
+}
+
+type Topics struct {
+	TestTopic string `mapstructure:"testTopic"`
 }

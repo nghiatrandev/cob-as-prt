@@ -18,7 +18,7 @@ package cmd
 import (
 	"fmt"
 	homedir "github.com/mitchellh/go-homedir"
-	. "github.com/nghiatrandev/cob-as-prt/common"
+	. "github.com/nghiatrandev/sample_project/common"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 	"log"

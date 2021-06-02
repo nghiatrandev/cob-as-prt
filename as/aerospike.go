@@ -2,7 +2,7 @@ package as
 
 import (
 	as "github.com/aerospike/aerospike-client-go"
-	. "github.com/nghiatrandev/cob-as-prt/common"
+	. "github.com/nghiatrandev/sample_project/common"
 )
 
 // NewClient generates a new Client instance.
